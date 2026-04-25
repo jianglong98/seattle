@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LW LLC. Seattle Property Management</title>
+    <title data-i18n="page_title">LW LLC. Seattle Property Management</title>
     <meta name="description" content="Top-tier property management in Seattle, WA. Maximize your ROI with less stress.">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -123,6 +123,25 @@
         .nav-actions {
             display: flex;
             gap: 15px;
+            align-items: center;
+        }
+        
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            margin-left: 15px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .lang-switch span {
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .lang-switch span:hover, .lang-switch span.active {
+            color: var(--secondary-color);
         }
 
         /* Hero Section */
@@ -389,14 +408,18 @@
                 LW LLC. Seattle
             </a>
             <nav class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#about">About Us</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="#contact">Contact</a>
+                <a href="#services" data-i18n="nav_services">Services</a>
+                <a href="#about" data-i18n="nav_about">About Us</a>
+                <a href="#testimonials" data-i18n="nav_reviews">Reviews</a>
+                <a href="#contact" data-i18n="nav_contact">Contact</a>
             </nav>
             <div class="nav-actions">
-                <a href="#" class="btn btn-outline">Owner Portal</a>
-                <a href="#" class="btn btn-outline">Resident Portal</a>
+                <a href="#" class="btn btn-outline" data-i18n="btn_owner">Owner Portal</a>
+                <a href="#" class="btn btn-outline" data-i18n="btn_resident">Resident Portal</a>
+                <div class="lang-switch">
+                    <span id="lang-en" class="active" onclick="setLanguage('en')">EN</span> | 
+                    <span id="lang-zh" onclick="setLanguage('zh')">中文</span>
+                </div>
             </div>
         </div>
     </header>
@@ -404,22 +427,22 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Seattle's Premier Property Management</h1>
-            <p>Maximize your ROI with less stress. We provide full-service property management for residential and commercial real estate in the Greater Seattle Area.</p>
-            <a href="#contact" class="btn btn-primary">Get a Free Rental Analysis</a>
+            <h1 data-i18n="hero_title">Seattle's Premier Property Management</h1>
+            <p data-i18n="hero_desc">Maximize your ROI with less stress. We provide full-service property management for residential and commercial real estate in the Greater Seattle Area.</p>
+            <a href="#contact" class="btn btn-primary" data-i18n="hero_btn">Get a Free Rental Analysis</a>
 
             <div class="hero-stats">
                 <div class="stat-item">
                     <h3>500+</h3>
-                    <p>Properties Managed</p>
+                    <p data-i18n="stat_1">Properties Managed</p>
                 </div>
                 <div class="stat-item">
                     <h3>99%</h3>
-                    <p>Rent Collection Rate</p>
+                    <p data-i18n="stat_2">Rent Collection Rate</p>
                 </div>
                 <div class="stat-item">
                     <h3>15</h3>
-                    <p>Avg. Days on Market</p>
+                    <p data-i18n="stat_3">Avg. Days on Market</p>
                 </div>
             </div>
         </div>
@@ -428,29 +451,29 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">The All-Under-One-Roof Solution</h2>
-            <p class="section-subtitle">We handle the day-to-day operations so you don't have to. Experience true passive income with our comprehensive management services.</p>
+            <h2 class="section-title" data-i18n="serv_title">The All-Under-One-Roof Solution</h2>
+            <p class="section-subtitle" data-i18n="serv_desc">We handle the day-to-day operations so you don't have to. Experience true passive income with our comprehensive management services.</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <i class="fa-solid fa-user-check"></i>
-                    <h3>Rigorous Tenant Screening</h3>
-                    <p>We run comprehensive background, credit, and eviction checks to place high-quality, long-term tenants in your property.</p>
+                    <h3 data-i18n="serv_1_title">Rigorous Tenant Screening</h3>
+                    <p data-i18n="serv_1_desc">We run comprehensive background, credit, and eviction checks to place high-quality, long-term tenants in your property.</p>
                 </div>
                 <div class="service-card">
                     <i class="fa-solid fa-money-bill-wave"></i>
-                    <h3>Automated Rent Collection</h3>
-                    <p>Our secure online portals make it easy for residents to pay on time, ensuring consistent cash flow to your bank account.</p>
+                    <h3 data-i18n="serv_2_title">Automated Rent Collection</h3>
+                    <p data-i18n="serv_2_desc">Our secure online portals make it easy for residents to pay on time, ensuring consistent cash flow to your bank account.</p>
                 </div>
                 <div class="service-card">
                     <i class="fa-solid fa-hammer"></i>
-                    <h3>24/7 Maintenance</h3>
-                    <p>We coordinate all repairs with our network of trusted, licensed local contractors, keeping your asset in top condition.</p>
+                    <h3 data-i18n="serv_3_title">24/7 Maintenance</h3>
+                    <p data-i18n="serv_3_desc">We coordinate all repairs with our network of trusted, licensed local contractors, keeping your asset in top condition.</p>
                 </div>
                 <div class="service-card">
                     <i class="fa-solid fa-chart-line"></i>
-                    <h3>Financial Reporting</h3>
-                    <p>Access detailed statements and tax documents anytime through your dedicated Owner Portal. Full transparency, always.</p>
+                    <h3 data-i18n="serv_4_title">Financial Reporting</h3>
+                    <p data-i18n="serv_4_desc">Access detailed statements and tax documents anytime through your dedicated Owner Portal. Full transparency, always.</p>
                 </div>
             </div>
         </div>
@@ -460,39 +483,39 @@
     <section id="contact" class="contact-section">
         <div class="container contact-container">
             <div class="contact-content">
-                <h2 class="section-title">Find Out What Your Property Is Worth</h2>
-                <p>Stop guessing. Get a professional rental analysis from local Seattle market experts. We'll show you how to increase your yield and protect your investment.</p>
+                <h2 class="section-title" data-i18n="contact_title">Find Out What Your Property Is Worth</h2>
+                <p data-i18n="contact_desc">Stop guessing. Get a professional rental analysis from local Seattle market experts. We'll show you how to increase your yield and protect your investment.</p>
                 <ul style="list-style: none; margin-top: 20px; line-height: 2;">
-                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> Detailed market rent estimate</li>
-                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> Property optimization tips</li>
-                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> Clear, flat-fee pricing breakdown</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> <span data-i18n="contact_list_1">Detailed market rent estimate</span></li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> <span data-i18n="contact_list_2">Property optimization tips</span></li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> <span data-i18n="contact_list_3">Clear, flat-fee pricing breakdown</span></li>
                 </ul>
             </div>
             <div class="contact-form">
                 <!-- Static Form Note: Can be hooked to Formspree by adding action="https://formspree.io/f/YOUR_ID" method="POST" -->
                 <form action="#" method="GET" onsubmit="alert('Thank you! This form is a frontend mockup for static hosting. In production, connect this to a service like Formspree.'); return false;">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                        <label for="name" data-i18n="form_name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe" data-i18n-ph="form_name_ph">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        <label for="email" data-i18n="form_email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com" data-i18n-ph="form_email_ph">
                     </div>
                     <div class="form-group">
-                        <label for="property">Property Address</label>
-                        <input type="text" id="property" name="property" required placeholder="123 Pike St, Seattle, WA">
+                        <label for="property" data-i18n="form_addr">Property Address</label>
+                        <input type="text" id="property" name="property" required placeholder="123 Pike St, Seattle, WA" data-i18n-ph="form_addr_ph">
                     </div>
                     <div class="form-group">
-                        <label for="type">Property Type</label>
+                        <label for="type" data-i18n="form_type">Property Type</label>
                         <select id="type" name="type">
-                            <option value="single">Single Family Home</option>
-                            <option value="multi">Multi-Family</option>
-                            <option value="condo">Condo / Townhouse</option>
-                            <option value="commercial">Commercial</option>
+                            <option value="single" data-i18n="form_opt_1">Single Family Home</option>
+                            <option value="multi" data-i18n="form_opt_2">Multi-Family</option>
+                            <option value="condo" data-i18n="form_opt_3">Condo / Townhouse</option>
+                            <option value="commercial" data-i18n="form_opt_4">Commercial</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Get My Free Analysis</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;" data-i18n="form_btn">Get My Free Analysis</button>
                 </form>
             </div>
         </div>
@@ -501,30 +524,30 @@
     <!-- Testimonials -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-title">Trusted by Seattle Owners</h2>
-            <p class="section-subtitle">Don't just take our word for it. Here is what our clients have to say.</p>
+            <h2 class="section-title" data-i18n="test_title">Trusted by Seattle Owners</h2>
+            <p class="section-subtitle" data-i18n="test_desc">Don't just take our word for it. Here is what our clients have to say.</p>
             
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p>"LW LLC. transformed my rental experience. Before them, I was dealing with late payments and midnight repair calls. Now, I just check my direct deposits. Best decision ever."</p>
-                    <p class="client-name">- Sarah T., Capitol Hill</p>
+                    <p data-i18n="test_1_quote">"LW LLC. transformed my rental experience. Before them, I was dealing with late payments and midnight repair calls. Now, I just check my direct deposits. Best decision ever."</p>
+                    <p class="client-name" data-i18n="test_1_name">- Sarah T., Capitol Hill</p>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p>"Their tenant screening is top-notch. The family they placed in my Bellevue property treats it like their own. Communication is always transparent and fast."</p>
-                    <p class="client-name">- David R., Bellevue</p>
+                    <p data-i18n="test_2_quote">"Their tenant screening is top-notch. The family they placed in my Bellevue property treats it like their own. Communication is always transparent and fast."</p>
+                    <p class="client-name" data-i18n="test_2_name">- David R., Bellevue</p>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p>"I own a small multi-family unit. LW LLC.'s financial reporting made tax season a breeze. Highly recommend them for any serious investor in the PNW."</p>
-                    <p class="client-name">- Michael L., Queen Anne</p>
+                    <p data-i18n="test_3_quote">"I own a small multi-family unit. LW LLC.'s financial reporting made tax season a breeze. Highly recommend them for any serious investor in the PNW."</p>
+                    <p class="client-name" data-i18n="test_3_name">- Michael L., Queen Anne</p>
                 </div>
             </div>
         </div>
@@ -538,7 +561,7 @@
                     <a href="#" class="logo" style="color: white; margin-bottom: 20px;">
                         <i class="fa-solid fa-city"></i> LW LLC. Seattle
                     </a>
-                    <p style="margin-bottom: 15px;">Professional, reliable, and transparent property management for the modern investor.</p>
+                    <p style="margin-bottom: 15px;" data-i18n="footer_desc">Professional, reliable, and transparent property management for the modern investor.</p>
                     <div class="social-links">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -546,33 +569,176 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Quick Links</h4>
+                    <h4 data-i18n="footer_links_title">Quick Links</h4>
                     <ul>
-                        <li><a href="#services">Our Services</a></li>
-                        <li><a href="#">Owner Portal</a></li>
-                        <li><a href="#">Resident Portal</a></li>
-                        <li><a href="#">Available Rentals</a></li>
+                        <li><a href="#services" data-i18n="footer_link_1">Our Services</a></li>
+                        <li><a href="#" data-i18n="footer_link_2">Owner Portal</a></li>
+                        <li><a href="#" data-i18n="footer_link_3">Resident Portal</a></li>
+                        <li><a href="#" data-i18n="footer_link_4">Available Rentals</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Contact Us</h4>
+                    <h4 data-i18n="footer_contact_title">Contact Us</h4>
                     <ul>
-                        <li><i class="fa-solid fa-location-dot"></i> 18 Enatai Dr, Bellevue WA US 98004</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_contact_addr">18 Enatai Dr, Bellevue WA US 98004</span></li>
                         <li><i class="fa-solid fa-phone"></i> (425) 894-4163</li>
                         <li><i class="fa-solid fa-envelope"></i> Cynthiawong800@gmail.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 LW LLC. Property Management. All Rights Reserved.</p>
+                <p><span data-i18n="footer_rights">&copy; 2026 LW LLC. Property Management. All Rights Reserved.</span></p>
                 <p style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-house-chimney"></i> Equal Housing Opportunity
+                    <i class="fa-solid fa-house-chimney"></i> <span data-i18n="footer_eho">Equal Housing Opportunity</span>
                 </p>
             </div>
         </div>
     </footer>
 
     <script>
+        const translations = {
+            "en": {
+                "page_title": "LW LLC. Seattle Property Management",
+                "nav_services": "Services",
+                "nav_about": "About Us",
+                "nav_reviews": "Reviews",
+                "nav_contact": "Contact",
+                "btn_owner": "Owner Portal",
+                "btn_resident": "Resident Portal",
+                "hero_title": "Seattle's Premier Property Management",
+                "hero_desc": "Maximize your ROI with less stress. We provide full-service property management for residential and commercial real estate in the Greater Seattle Area.",
+                "hero_btn": "Get a Free Rental Analysis",
+                "stat_1": "Properties Managed",
+                "stat_2": "Rent Collection Rate",
+                "stat_3": "Avg. Days on Market",
+                "serv_title": "The All-Under-One-Roof Solution",
+                "serv_desc": "We handle the day-to-day operations so you don't have to. Experience true passive income with our comprehensive management services.",
+                "serv_1_title": "Rigorous Tenant Screening",
+                "serv_1_desc": "We run comprehensive background, credit, and eviction checks to place high-quality, long-term tenants in your property.",
+                "serv_2_title": "Automated Rent Collection",
+                "serv_2_desc": "Our secure online portals make it easy for residents to pay on time, ensuring consistent cash flow to your bank account.",
+                "serv_3_title": "24/7 Maintenance",
+                "serv_3_desc": "We coordinate all repairs with our network of trusted, licensed local contractors, keeping your asset in top condition.",
+                "serv_4_title": "Financial Reporting",
+                "serv_4_desc": "Access detailed statements and tax documents anytime through your dedicated Owner Portal. Full transparency, always.",
+                "contact_title": "Find Out What Your Property Is Worth",
+                "contact_desc": "Stop guessing. Get a professional rental analysis from local Seattle market experts. We'll show you how to increase your yield and protect your investment.",
+                "contact_list_1": "Detailed market rent estimate",
+                "contact_list_2": "Property optimization tips",
+                "contact_list_3": "Clear, flat-fee pricing breakdown",
+                "form_name": "Full Name",
+                "form_name_ph": "John Doe",
+                "form_email": "Email Address",
+                "form_email_ph": "john@example.com",
+                "form_addr": "Property Address",
+                "form_addr_ph": "123 Pike St, Seattle, WA",
+                "form_type": "Property Type",
+                "form_opt_1": "Single Family Home",
+                "form_opt_2": "Multi-Family",
+                "form_opt_3": "Condo / Townhouse",
+                "form_opt_4": "Commercial",
+                "form_btn": "Get My Free Analysis",
+                "test_title": "Trusted by Seattle Owners",
+                "test_desc": "Don't just take our word for it. Here is what our clients have to say.",
+                "test_1_quote": "\"LW LLC. transformed my rental experience. Before them, I was dealing with late payments and midnight repair calls. Now, I just check my direct deposits. Best decision ever.\"",
+                "test_1_name": "- Sarah T., Capitol Hill",
+                "test_2_quote": "\"Their tenant screening is top-notch. The family they placed in my Bellevue property treats it like their own. Communication is always transparent and fast.\"",
+                "test_2_name": "- David R., Bellevue",
+                "test_3_quote": "\"I own a small multi-family unit. LW LLC.'s financial reporting made tax season a breeze. Highly recommend them for any serious investor in the PNW.\"",
+                "test_3_name": "- Michael L., Queen Anne",
+                "footer_desc": "Professional, reliable, and transparent property management for the modern investor.",
+                "footer_links_title": "Quick Links",
+                "footer_link_1": "Our Services",
+                "footer_link_2": "Owner Portal",
+                "footer_link_3": "Resident Portal",
+                "footer_link_4": "Available Rentals",
+                "footer_contact_title": "Contact Us",
+                "footer_contact_addr": "18 Enatai Dr, Bellevue WA US 98004",
+                "footer_rights": "© 2026 LW LLC. Property Management. All Rights Reserved.",
+                "footer_eho": "Equal Housing Opportunity"
+            },
+            "zh": {
+                "page_title": "LW LLC. 西雅图物业管理",
+                "nav_services": "我们的服务",
+                "nav_about": "关于我们",
+                "nav_reviews": "客户评价",
+                "nav_contact": "联系我们",
+                "btn_owner": "业主门户",
+                "btn_resident": "租户门户",
+                "hero_title": "西雅图首屈一指的物业管理",
+                "hero_desc": "在减少压力的同时实现您的投资回报率最大化。我们为大西雅图地区的住宅和商业房地产提供全方位服务的物业管理。",
+                "hero_btn": "获取免费租金分析",
+                "stat_1": "管理物业",
+                "stat_2": "租金收取率",
+                "stat_3": "平均上市天数",
+                "serv_title": "一站式解决方案",
+                "serv_desc": "我们负责日常运营，让您省心省力。通过我们的全面管理服务，体验真正的被动收入。",
+                "serv_1_title": "严格的租客筛选",
+                "serv_1_desc": "我们进行全面的背景、信用和驱逐记录审查，为您的高品质物业寻找长期租客。",
+                "serv_2_title": "自动租金收取",
+                "serv_2_desc": "我们安全的在线门户网站使租客能够轻松按时付款，确保稳定的现金流进入您的银行账户。",
+                "serv_3_title": "全天候维护",
+                "serv_3_desc": "我们与值得信赖、持有执照的当地承包商网络协调所有维修工作，让您的资产保持最佳状态。",
+                "serv_4_title": "财务报告",
+                "serv_4_desc": "随时通过您专属的业主门户访问详细的报表和税务文件。始终保持完全透明。",
+                "contact_title": "了解您的房产价值",
+                "contact_desc": "无需猜测。从当地西雅图市场专家那里获取专业的租赁分析。我们将向您展示如何提高收益并保护您的投资。",
+                "contact_list_1": "详细的市场租金预估",
+                "contact_list_2": "房产优化建议",
+                "contact_list_3": "清晰的固定费用定价明细",
+                "form_name": "全名",
+                "form_name_ph": "例如：张三",
+                "form_email": "电子邮件地址",
+                "form_email_ph": "zhangsan@example.com",
+                "form_addr": "房产地址",
+                "form_addr_ph": "123 Pike St, Seattle, WA",
+                "form_type": "房产类型",
+                "form_opt_1": "独栋别墅",
+                "form_opt_2": "多家庭住宅",
+                "form_opt_3": "公寓 / 联排别墅",
+                "form_opt_4": "商业地产",
+                "form_btn": "获取我的免费分析",
+                "test_title": "备受西雅图业主信赖",
+                "test_desc": "不要只听我们说。看看我们的客户是怎么说的。",
+                "test_1_quote": "“LW LLC. 改变了我的出租体验。在他们之前，我一直在处理迟交租金和半夜的维修电话。现在，我只需查看我的直接存款。这是最棒的决定。”",
+                "test_1_name": "- Sarah T., 国会山",
+                "test_2_quote": "“他们的租客筛选是一流的。他们安排在我的贝尔维尤物业里的家庭把它当成自己的家一样对待。沟通始终透明快捷。”",
+                "test_2_name": "- David R., 贝尔维尤",
+                "test_3_quote": "“我拥有一栋小型多户住宅。LW LLC. 的财务报告让报税季变得轻松。强烈推荐给太平洋西北地区的任何认真投资者。”",
+                "test_3_name": "- Michael L., 安妮女王区",
+                "footer_desc": "为现代投资者提供专业、可靠、透明的物业管理。",
+                "footer_links_title": "快速链接",
+                "footer_link_1": "我们的服务",
+                "footer_link_2": "业主门户",
+                "footer_link_3": "租户门户",
+                "footer_link_4": "可租房源",
+                "footer_contact_title": "联系我们",
+                "footer_contact_addr": "18 Enatai Dr, Bellevue WA US 98004",
+                "footer_rights": "© 2026 LW LLC. 物业管理。保留所有权利。",
+                "footer_eho": "平等住房机会"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            // Update active state on language switcher buttons
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+        }
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
