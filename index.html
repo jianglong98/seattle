@@ -3,50 +3,585 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seattle Property Management Service</title>
+    <title>LW LLC. Seattle Property Management</title>
+    <meta name="description" content="Top-tier property management in Seattle, WA. Maximize your ROI with less stress.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Base Styles & Variables */
+        :root {
+            --primary-color: #1A365D; /* Deep Blue */
+            --secondary-color: #2F855A; /* Evergreen */
+            --accent-color: #E2E8F0; /* Slate */
+            --text-dark: #2D3748;
+            --text-light: #F7FAFC;
+            --bg-light: #F7FAFC;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: #f8f9fa;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
-        header {
-            background-color: #0056b3;
-            color: #fff;
-            padding: 2rem 1rem;
-            text-align: center;
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
         }
-        main {
-            flex: 1;
-            padding: 3rem 1rem;
-            max-width: 800px;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
             text-align: center;
         }
-        footer {
-            background-color: #343a40;
-            color: #fff;
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1506526149861-68db02b3eb51?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--text-light);
+            padding: 120px 0;
             text-align: center;
-            padding: 1.5rem 0;
-            margin-top: auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #E2E8F0;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: var(--secondary-color);
+        }
+
+        .stat-item p {
+            font-size: 16px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #718096;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card i {
+            font-size: 40px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Contact / Lead Capture */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-content {
+            flex: 1;
+        }
+
+        .contact-content .section-title {
+            color: var(--white);
+        }
+
+        .contact-form {
+            flex: 1;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CBD5E0;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .stars {
+            color: #ECC94B;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1e36;
+            color: #A0AEC0;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #A0AEC0;
+            font-size: 20px;
+        }
+
+        .social-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2D3748;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            .nav-links, .nav-actions {
+                display: none; /* In a real app, implement a hamburger menu here */
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Header -->
     <header>
-        <h1>Seattle Property Management Service</h1>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-city"></i>
+                LW LLC. Seattle
+            </a>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About Us</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">Owner Portal</a>
+                <a href="#" class="btn btn-outline">Resident Portal</a>
+            </div>
+        </div>
     </header>
-    <main>
-        <h2>Professional Management for Your Seattle Properties</h2>
-        <p>We offer full-service property management, ensuring your investment is well-maintained, tenants are properly screened, and your properties remain highly profitable.</p>
-    </main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Seattle's Premier Property Management</h1>
+            <p>Maximize your ROI with less stress. We provide full-service property management for residential and commercial real estate in the Greater Seattle Area.</p>
+            <a href="#contact" class="btn btn-primary">Get a Free Rental Analysis</a>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Properties Managed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99%</h3>
+                    <p>Rent Collection Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15</h3>
+                    <p>Avg. Days on Market</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">The All-Under-One-Roof Solution</h2>
+            <p class="section-subtitle">We handle the day-to-day operations so you don't have to. Experience true passive income with our comprehensive management services.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-user-check"></i>
+                    <h3>Rigorous Tenant Screening</h3>
+                    <p>We run comprehensive background, credit, and eviction checks to place high-quality, long-term tenants in your property.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <h3>Automated Rent Collection</h3>
+                    <p>Our secure online portals make it easy for residents to pay on time, ensuring consistent cash flow to your bank account.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-hammer"></i>
+                    <h3>24/7 Maintenance</h3>
+                    <p>We coordinate all repairs with our network of trusted, licensed local contractors, keeping your asset in top condition.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Financial Reporting</h3>
+                    <p>Access detailed statements and tax documents anytime through your dedicated Owner Portal. Full transparency, always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Lead Capture -->
+    <section id="contact" class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-content">
+                <h2 class="section-title">Find Out What Your Property Is Worth</h2>
+                <p>Stop guessing. Get a professional rental analysis from local Seattle market experts. We'll show you how to increase your yield and protect your investment.</p>
+                <ul style="list-style: none; margin-top: 20px; line-height: 2;">
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> Detailed market rent estimate</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> Property optimization tips</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary-color); margin-right: 10px;"></i> Clear, flat-fee pricing breakdown</li>
+                </ul>
+            </div>
+            <div class="contact-form">
+                <!-- Static Form Note: Can be hooked to Formspree by adding action="https://formspree.io/f/YOUR_ID" method="POST" -->
+                <form action="#" method="GET" onsubmit="alert('Thank you! This form is a frontend mockup for static hosting. In production, connect this to a service like Formspree.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="property">Property Address</label>
+                        <input type="text" id="property" name="property" required placeholder="123 Pike St, Seattle, WA">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Property Type</label>
+                        <select id="type" name="type">
+                            <option value="single">Single Family Home</option>
+                            <option value="multi">Multi-Family</option>
+                            <option value="condo">Condo / Townhouse</option>
+                            <option value="commercial">Commercial</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Get My Free Analysis</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Trusted by Seattle Owners</h2>
+            <p class="section-subtitle">Don't just take our word for it. Here is what our clients have to say.</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"LW LLC. transformed my rental experience. Before them, I was dealing with late payments and midnight repair calls. Now, I just check my direct deposits. Best decision ever."</p>
+                    <p class="client-name">- Sarah T., Capitol Hill</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Their tenant screening is top-notch. The family they placed in my Bellevue property treats it like their own. Communication is always transparent and fast."</p>
+                    <p class="client-name">- David R., Bellevue</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"I own a small multi-family unit. LW LLC.'s financial reporting made tax season a breeze. Highly recommend them for any serious investor in the PNW."</p>
+                    <p class="client-name">- Michael L., Queen Anne</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>LW LLC. business @2026</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px;">
+                        <i class="fa-solid fa-city"></i> LW LLC. Seattle
+                    </a>
+                    <p style="margin-bottom: 15px;">Professional, reliable, and transparent property management for the modern investor.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#">Owner Portal</a></li>
+                        <li><a href="#">Resident Portal</a></li>
+                        <li><a href="#">Available Rentals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> 18 Enatai Dr, Bellevue WA US 98004</li>
+                        <li><i class="fa-solid fa-phone"></i> (425) 894-4163</li>
+                        <li><i class="fa-solid fa-envelope"></i> Cynthiawong800@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LW LLC. Property Management. All Rights Reserved.</p>
+                <p style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-house-chimney"></i> Equal Housing Opportunity
+                </p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
