@@ -7,16 +7,20 @@ set -euo pipefail
 # Configuration
 # ==========================================
 WEBSITE_URL="https://seattle.otalkie.com"
-GITHUB_REPO="https://github.com/jianglong98/seattle.git" 
-BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+BUCKET="gs://seattle.otalkie.com"
+GITHUB_REPO="https://github.com/jianglong98/seattle.git" # Updated to HTTPS
+
+# The directory containing your website files. 
+SOURCE_DIR="." 
+BRANCH="$(git rev-parse --abbrev-ref HEAD)" # Automatically gets current branch
 
 echo "🚀 Starting deployment automation for $WEBSITE_URL..."
 
 # ==========================================
 # Prerequisite Checks
 # ==========================================
-if ! command -v firebase &> /dev/null; then
-    echo "❌ Error: 'firebase' CLI is not installed. Run: npm install -g firebase-tools"
+if ! command -v gsutil &> /dev/null; then
+    echo "❌ Error: 'gsutil' is not installed or not in your PATH. Please install Google Cloud CLI."
     exit 1
 fi
 
@@ -26,12 +30,18 @@ if ! command -v git &> /dev/null; then
 fi
 
 # ==========================================
-# 1. Deploy to Firebase Hosting
+# 1. Deploy to Google Cloud Storage
 # ==========================================
-echo "☁️  Deploying files to Firebase Hosting..."
-firebase deploy --only hosting
+echo "☁️  Syncing files to Google Cloud Storage ($BUCKET)..."
+gsutil rsync -R -c -d "$SOURCE_DIR" "$BUCKET"
 
-echo "✅ Firebase Deployment successful!"
+echo "🔓 Configuring public read access..."
+gsutil iam ch allUsers:objectViewer "$BUCKET"
+
+echo "⚙️  Configuring website entry points (index and 404 pages)..."
+gsutil web set -m index.html -e 404.html "$BUCKET"
+
+echo "✅ GCP Deployment successful!"
 
 # ==========================================
 # 2. Push to GitHub
