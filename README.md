@@ -29,3 +29,14 @@ This website represents **LW LLC. Property Management** (formerly Otalkie Proper
 - **Address:** 18 Enatai Dr, Bellevue WA US 98004
 - **Phone:** (425) 894-4163
 - **Email:** Cynthiawong800@gmail.com
+
+## Local Development & Testing
+
+### Preview Files Locally Before Deploying
+Since you can't easily browse the files in the cloud, the best practice is to test them locally before running your `deploy.sh` script. You can start a local Firebase server by running this command in your terminal at `/Users/jianglong/Cascade/seattle/`:
+
+```bash
+firebase serve --only hosting
+```
+
+This will give you a localhost URL (usually `http://localhost:5000`) where you can click around and verify your website looks correct before pushing it live.
