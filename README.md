@@ -8,7 +8,7 @@ This website represents **LW LLC. Property Management** (formerly Otalkie Proper
 ## Key Features & Functions
 - **Bilingual Support (English & Chinese):** Includes a language switcher in the navigation bar to toggle the entire website's text between English and Simplified Chinese dynamically using JavaScript.
 - **Responsive Design:** Optimized for both desktop and mobile devices, including a responsive hamburger menu for mobile navigation.
-- **Formspree Integration:** Uses an AJAX-based Formspree form (`@formspree/ajax`) to capture leads for "Free Rental Analysis" and send them directly to `Cynthiawong800@gmail.com`. It features client-side validation and success/error message handling without page reloads.
+- **Formspree Integration:** Uses an AJAX-based Formspree form (`@formspree/ajax`) to capture leads for "Free Rental Analysis" and send them directly to `lw@otalkie.com`. It features client-side validation and success/error message handling without page reloads.
 - **Smooth Scrolling:** Anchor links in the navigation smoothly scroll to respective sections on the page.
 
 ## Content Sections
@@ -26,9 +26,9 @@ This website represents **LW LLC. Property Management** (formerly Otalkie Proper
 ## Meta Data & Contact Information
 - **Title:** LW LLC. Seattle Property Management
 - **Description:** Top-tier property management in Seattle, WA. Maximize your ROI with less stress.
-- **Address:** 18 Enatai Dr, Bellevue WA US 98004
-- **Phone:** (425) 894-4163
-- **Email:** Cynthiawong800@gmail.com
+- **Address:** 18223 145th Ct NE, Woodinville, WA 98072
+- **Phone:** 983-444-5123
+- **Email:** lw@otalkie.com
 
 ## Local Development & Testing
 
