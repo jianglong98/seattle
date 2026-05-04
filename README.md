@@ -27,7 +27,6 @@ This website represents **LW LLC. Property Management** (formerly Otalkie Proper
 - **Title:** LW LLC. Seattle Property Management
 - **Description:** Top-tier property management in Seattle, WA. Maximize your ROI with less stress.
 - **Address:** 18223 145th Ct NE, Woodinville, WA 98072
-- **Phone:** 983-444-5123
 - **Email:** lw@otalkie.com
 
 ## Local Development & Testing
