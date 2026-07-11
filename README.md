@@ -1,9 +1,9 @@
 # seattle
 Seattle Property Management Service
-# LW LLC. Seattle Property Management
+# W Plus Management LLC. Seattle Property Management
 
 ## Website Overview
-This website represents **LW LLC. Property Management** (formerly Otalkie Property Management), a top-tier property management business operating in the Greater Seattle Area. It is designed to be a high-conversion, professional landing page to capture leads from property owners who want a free rental analysis.
+This website represents **W Plus Management LLC. Property Management** (formerly Otalkie Property Management), a top-tier property management business operating in the Greater Seattle Area. It is designed to be a high-conversion, professional landing page to capture leads from property owners who want a free rental analysis.
 
 ## Key Features & Functions
 - **Bilingual Support (English & Chinese):** Includes a language switcher in the navigation bar to toggle the entire website's text between English and Simplified Chinese dynamically using JavaScript.
@@ -24,7 +24,7 @@ This website represents **LW LLC. Property Management** (formerly Otalkie Proper
 6. **Footer:** Quick links, social media icons, equal housing opportunity statement, and contact details.
 
 ## Meta Data & Contact Information
-- **Title:** LW LLC. Seattle Property Management
+- **Title:** W Plus Management LLC. Seattle Property Management
 - **Description:** Top-tier property management in Seattle, WA. Maximize your ROI with less stress.
 - **Address:** 18223 145th Ct NE, Woodinville, WA 98072
 - **Email:** lw@otalkie.com
