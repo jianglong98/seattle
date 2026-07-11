@@ -36,6 +36,11 @@
             line-height: 1.6;
         }
 
+        /* Prevent body scroll when mobile menu is open */
+        body.no-scroll {
+            overflow: hidden;
+        }
+
         a {
             text-decoration: none;
             color: inherit;
@@ -56,6 +61,12 @@
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
+        }
+
+        /* Accessibility: Add a clear focus state for keyboard navigation */
+        .btn:focus, input:focus, select:focus, textarea:focus {
+            outline: 2px solid #4299E1; /* A distinct blue outline */
+            outline-offset: 2px;
         }
 
         .btn-primary {
@@ -170,10 +181,19 @@
 
         /* Hero Section */
         .hero {
-            background: url('bellevue.jpeg') center/cover;
+            position: relative; /* Needed for the overlay */
             color: var(--text-light);
             padding: 120px 0;
             text-align: center;
+            background: url('bellevue.jpeg') center/cover no-repeat;
+        }
+
+        /* Add a dark overlay for better text readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         .hero h1 {
@@ -189,6 +209,12 @@
             margin-left: auto;
             margin-right: auto;
             color: #E2E8F0;
+        }
+
+        /* Ensure hero content is above the overlay */
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-stats {
@@ -520,6 +546,18 @@
                 padding: 25px;
             }
         }
+
+        /* Overlay for mobile menu */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
@@ -556,6 +594,9 @@
             </div>
         </div>
     </header>
+
+    <!-- Overlay for Mobile Menu -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -656,7 +697,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inquiry" data-i18n="form_inquiry">Inquire</label>
-                        <textarea id="inquiry" name="inquiry" rows="4" maxlength="2000" placeholder="Please describe details (up to 300 words)..." data-i18n-ph="form_inquiry_ph" data-fs-field></textarea>
+                        <textarea id="inquiry" name="inquiry" rows="4" maxlength="2000" placeholder="Please describe any details..." data-i18n-ph="form_inquiry_ph" data-fs-field></textarea>
                         <span data-fs-error="inquiry" style="color: #e53e3e; font-size: 14px; margin-top: 5px; display: block;"></span>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;" data-i18n="form_btn" data-fs-submit-btn>Get My Free Analysis</button>
@@ -784,7 +825,7 @@
                 "form_opt_3": "Condo / Townhouse",
                 "form_opt_4": "Commercial",
                 "form_inquiry": "Inquire",
-                "form_inquiry_ph": "Please describe details (up to 300 words)...",
+                "form_inquiry_ph": "Please describe any details...",
                 "form_btn": "Get My Free Analysis",
                 "test_title": "Trusted by Seattle Owners",
                 "test_desc": "Don't just take our word for it. Here is what our clients have to say.",
@@ -849,7 +890,7 @@
                 "form_opt_3": "公寓 / 联排别墅",
                 "form_opt_4": "商业地产",
                 "form_inquiry": "咨询详情",
-                "form_inquiry_ph": "请描述具体细节（最多300字）...",
+                "form_inquiry_ph": "请描述具体细节...",
                 "form_btn": "获取我的免费分析",
                 "test_title": "备受西雅图业主信赖",
                 "test_desc": "不要只听我们说。看看我们的客户是怎么说的。",
@@ -896,11 +937,15 @@
         function toggleMenu() {
             const navWrapper = document.getElementById('nav-wrapper');
             const hamburger = document.getElementById('hamburger');
+            const overlay = document.getElementById('overlay');
+            const body = document.body;
             
             // Only toggle if we are in mobile view
             if (window.innerWidth <= 992) {
-                navWrapper.classList.toggle('active');
-                hamburger.classList.toggle('active');
+                const isActive = navWrapper.classList.toggle('active');
+                hamburger.classList.toggle('active', isActive);
+                overlay.style.display = isActive ? 'block' : 'none';
+                body.classList.toggle('no-scroll', isActive);
             }
         }
 
@@ -916,7 +961,23 @@
     </script>
     <script>
         window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { formElement: '#analysis-form', formId: 'myklvnpe' });
+        formspree('initForm', { 
+            formElement: '#analysis-form', 
+            formId: 'myklvnpe',
+            beforeSubmit: function(data, options) {
+                const submitButton = options.form.querySelector('[data-fs-submit-btn]');
+                submitButton.disabled = true;
+                submitButton.dataset.originalText = submitButton.innerText;
+                submitButton.innerText = 'Submitting...';
+            },
+            afterSubmit: function(data, options) {
+                const submitButton = options.form.querySelector('[data-fs-submit-btn]');
+                submitButton.disabled = false;
+                if (submitButton.dataset.originalText) {
+                    submitButton.innerText = submitButton.dataset.originalText;
+                }
+            }
+        });
     </script>
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
