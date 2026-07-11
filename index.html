@@ -115,6 +115,8 @@
             align-items: center;
             gap: 10px;
             z-index: 1001; /* To stay above mobile menu */
+            flex-shrink: 1; /* Allow logo to shrink if needed */
+            white-space: nowrap; /* Prevent text from wrapping */
         }
 
         .nav-wrapper {
@@ -544,6 +546,13 @@
             }
             .contact-form {
                 padding: 25px;
+            }
+        }
+
+        /* Adjust logo font size on medium screens to prevent wrapping */
+        @media (min-width: 993px) and (max-width: 1100px) {
+            .logo {
+                font-size: 20px;
             }
         }
 
